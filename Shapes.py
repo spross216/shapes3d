@@ -42,7 +42,7 @@ class Polygon(Shape):
 			math.sin(math.pi / self._sides)
 		)
 
-		return (self._sides / 4) * cotComponent
+		return (self._sides / 4) * (self._sideLength**2) * cotComponent
 
 	def GetPerimeter(self) -> float:
 		''' Gets the perimeter of the regular polygon.
