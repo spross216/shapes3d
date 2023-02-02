@@ -7,16 +7,16 @@ import Shapes
 # with the specific class attributes passed through them 
 
 class Cuboid:
-    def __init__(self, length, width, height):
+    def __init__(self, width, height, depth):
         self.width = width
         self.height = height
-        self.length = length
+        self.depth = depth
 
     def area(self):
-        return 2 * ((self.width * self.length) + (self.height * self.length) + (self.height * self.width))
+        return 2 * ((self.width * self.depth) + (self.height * self.depth) + (self.height * self.width))
 
     def volume(self):
-        return self.width * self.height * self.length
+        return self.width * self.height * self.depth
 
 
 class Cube(Cuboid):
@@ -25,7 +25,7 @@ class Cube(Cuboid):
 
 
 class Cylinder:
-    def __init__(self, height, radius):
+    def __init__(self, radius, height):
         self.height = height
         self.radius = radius
         self.base = Shapes.Circle(radius).GetArea()

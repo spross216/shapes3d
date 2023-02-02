@@ -19,11 +19,13 @@ class Solver:
                 elif row[0] == "prism":
                     shape = shapes3D.Prism(float(row[1]), float(row[2]), float(row[3]))
                 elif row[0] == "area":
-                    self.total += sum(calc.area() for calc in self.shapes) * float(row[1])
-                    self.shapes = []
+                    for shape in self.shapes:
+                        self.total += shape.area() * float(row[1])
+                        self.shapes = []
                 elif row[0] == "volume":
-                    self.total += sum(calc.volume() for calc in self.shapes) * float(row[1])
-                    self.shapes = []
+                    for shape in self.shapes:
+                        self.total += shape.volume() * float(row[1])
+                        self.shapes = []
                 else:
                     raise ValueError("Invalid shape name: {}".format(row[0]))
                 self.shapes.append(shape)
